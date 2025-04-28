@@ -28,8 +28,8 @@ export function ChatInput({
   appendAndTrigger,
 }: ChatInputProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const [isComposing, setIsComposing] = useState(false); // Composition state
-  const [enterDisabled, setEnterDisabled] = useState(false); // Disable Enter after composition ends
+  const [isComposing, setIsComposing] = useState(false); 
+  const [enterDisabled, setEnterDisabled] = useState(false); 
 
   const handleCompositionStart = () => setIsComposing(true);
 
