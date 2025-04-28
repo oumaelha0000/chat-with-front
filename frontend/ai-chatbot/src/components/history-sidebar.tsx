@@ -1,4 +1,4 @@
-// File: src/components/history-sidebar.tsx
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -13,9 +13,8 @@ export const HistorySidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { chats, deleteChat } = useChatHistory();
   const pathname = usePathname();
-  const currentChatId = pathname.split("/")[2]; // Extract chat ID from URL
+  const currentChatId = pathname.split("/")[2]; 
 
-  // Group chats by date
   const groupedChats = chats.reduce((acc, chat) => {
     const date = format(chat.createdAt, "yyyy-MM-dd");
     if (!acc[date]) acc[date] = [];
