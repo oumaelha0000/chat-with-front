@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
       <div>
         <Link href="/">
           <HomeIcon size={16} />
-          <span className="sr-only">Oumama</span>
+          <span className="sr-only">LE Ai</span>
         </Link>
       </div>
     </header>
