@@ -18,7 +18,7 @@ export function Chat({ id }: { id: string }) {
   
   const addedToHistoryRef = useRef(false);
 
-  // Input state and handlers.
+  
   const initialInput = "";
   const [inputContent, setInputContent] = useState<string>(initialInput);
   const [isLoading, setIsLoading] = useState<boolean>(false);
