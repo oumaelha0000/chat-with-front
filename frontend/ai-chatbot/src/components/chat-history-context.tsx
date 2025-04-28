@@ -1,4 +1,4 @@
-// File: src/components/chat-history-context.tsx
+
 "use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
@@ -26,7 +26,7 @@ export const useChatHistory = () => useContext(ChatHistoryContext);
 
 export const ChatHistoryProvider = ({ children }: { children: ReactNode }) => {
   const [chats, setChats] = useState<ChatHistoryItem[]>(() => {
-    // Initialize with some mock data
+   
     return [
       {
         id: "1",
@@ -38,7 +38,7 @@ export const ChatHistoryProvider = ({ children }: { children: ReactNode }) => {
         id: "2",
         title: "Tramway prices",
         preview: "What are the current tramway prices in Casablanca?",
-        createdAt: new Date(Date.now() - 86400000), // Yesterday
+        createdAt: new Date(Date.now() - 86400000),
       },
     ];
   });
