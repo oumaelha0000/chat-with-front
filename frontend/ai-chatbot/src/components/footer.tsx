@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
           className="text-muted-foreground/50"
         >
           <Link href="https://ent.univh2c.ma/" target="_blank">
-            {/* <SiGithub size={18} /> */}
+        
           </Link>
         </Button>
       </div>
