@@ -49,7 +49,7 @@ export default function ChatMessage({ messages, isLoading }: ChatMessageProps) {
     <div
       id="scroller"
       className="w-full overflow-y-scroll overflow-x-hidden h-full justify-end"
-      style={{ height: "calc(100vh - 200px)" }} // Adjust height as needed
+      style={{ height: "calc(100vh - 200px)" }} 
     >
       <div className="w-full flex flex-col overflow-x-hidden overflow-y-hidden min-h-full justify-end">
         {messages.map((message, index) => (
@@ -127,10 +127,10 @@ export default function ChatMessage({ messages, isLoading }: ChatMessageProps) {
                           />
                         );
                       } else {
-                        // Extract language from the code block (assuming first word is the lang)
+                        
                         const lines = part.split("\n");
                         const firstLine = lines[0].trim();
-                        const detectedLang = /^[a-zA-Z]+$/.test(firstLine) ? firstLine : "plaintext"; // Default to 'plaintext' if no lang is specified
+                        const detectedLang = /^[a-zA-Z]+$/.test(firstLine) ? firstLine : "plaintext"; 
                         const codeContent = detectedLang === "plaintext" ? part : lines.slice(1).join("\n");
 
                         return (
