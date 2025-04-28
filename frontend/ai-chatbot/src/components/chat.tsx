@@ -15,7 +15,7 @@ export function Chat({ id }: { id: string }) {
   const pathname = usePathname();
   const { addChat } = useChatHistory();
   
-  // Track if we've added this chat to history
+  
   const addedToHistoryRef = useRef(false);
 
   // Input state and handlers.
@@ -23,12 +23,12 @@ export function Chat({ id }: { id: string }) {
   const [inputContent, setInputContent] = useState<string>(initialInput);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // Store the chat state in SWR, using the chatId as the key to share states.
+
   const { data: messages, mutate } = useSWR<Message[]>([id, "messages"], null, {
     fallbackData: [],
   });
 
-  // Keep the latest messages in a ref.
+
   const messagesRef = useRef<Message[]>(messages || []);
   useEffect(() => {
     messagesRef.current = messages || [];
@@ -47,7 +47,7 @@ export function Chat({ id }: { id: string }) {
     [mutate]
   );
 
-  // Append function
+  
   const append = useCallback(
     async (message: Message) => {
       return new Promise<string | null | undefined>((resolve) => {
@@ -58,7 +58,7 @@ export function Chat({ id }: { id: string }) {
             lastMessage?.role === "assistant" &&
             message.role === "assistant"
           ) {
-            // Append to the last assistant message
+            
             const updatedMessage = {
               ...lastMessage,
               content: lastMessage.content + message.content,
@@ -77,12 +77,12 @@ export function Chat({ id }: { id: string }) {
     [setMessages]
   );
 
-  // Modified appendAndTrigger to handle chat history
+ 
   const appendAndTrigger = useCallback(
     async (message: Message) => {
       const inputContent: string = message.content;
       
-      // If this is the first message, add to chat history
+  
       if (messagesRef.current.length === 0) {
         addedToHistoryRef.current = true;
         addChat({
@@ -97,7 +97,7 @@ export function Chat({ id }: { id: string }) {
     [setIsLoading, append, addChat]
   );
 
-  // handlers
+ 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputContent(e.target.value);
   };
@@ -121,7 +121,7 @@ export function Chat({ id }: { id: string }) {
     [inputContent, setInputContent, setIsLoading, append]
   );
 
-  // handle form submission functionality
+  
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     handleSubmit(e);
   };
